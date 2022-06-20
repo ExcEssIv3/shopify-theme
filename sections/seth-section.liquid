@@ -1,0 +1,18 @@
+<link rel="stylesheet" href="{{ 'seth.css' | asset_url }}">
+
+<div id="wrapper">
+  <div id="first">
+    {% render 'seth-customer-info' %}
+  </div>
+  <div id="second">
+    {% render 'seth-product-list' %}
+  </div>
+</div>
+
+{% schema %}
+{
+	"name": "Seth",
+	"tag": "section",
+	"class": "section"
+}
+{% endschema %}

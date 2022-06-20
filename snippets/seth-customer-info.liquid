@@ -1,0 +1,55 @@
+<strong>Customer Info:</strong> <br>
+
+Name: {{ customer.name }} <br>
+Email: {{ customer.email }} <br>
+Phone: {{ customer.phone }} <br>
+Total spent: {{ customer.total_spent }} <br> <br>
+
+<strong>Flags:</strong> <br>
+{% if customer.accepts_marketing %} Accepts marketing<br> {% endif %}
+{% if customer.has_account %} Has account<br> {% endif %}
+{% if customer.tax_exempt %} Tax exempt<br> {% endif %}
+<strong>End of flags</strong> <br><br>
+
+<strong>Addresses:</strong> <br>
+{% for address in customer.addresses %}
+	<em>Address {% increment address_count %}:</em> <br>
+	Name: {{ address.first_name }} {{ address.last_name }} <br>
+ 	Street: {{ address.street }} <br>
+	City: {{ address.city }} {{ address.province }} <br>
+	Zip: {{ address.zip }} <br>
+	{% if customer.default_address == address %}
+	Default address <br>
+	{% endif %}
+{% endfor %}
+<br>
+
+{% if customer.orders %}
+	<strong>Orders:</strong><br>
+	{% for order in customer.orders %}
+		Name: {{ order.name }}<br>
+		Created at: {{ order.created_at }} <br>
+		Financial status: {{ order.financial_status }} <br>
+		Fulfillment status: {{ order.fulfillment_status }} <br>
+		Billing country: {{ order.billing_address.country }} <br>
+		{% if order.cancelled %}
+			Order cancelled on {{ order.cancelled_at }} because: <br>
+			{{ order.cancel_reason }}
+		{% endif %}
+		{% if order.attributes %}
+  			<p>Order notes:</p>
+  			<ul>
+    			{% for attribute in order.attributes %}
+      				<li><strong>{{ attribute | first }}</strong>: {{ attribute | last }}</li>
+    			{% endfor %}
+  			</ul>
+		{% endif %}
+
+	{% endfor %}
+{% endif %}
+
+<strong>Tags:</strong><br>
+{% for tag in customer.tags %}
+	{{ tag }}
+{% endfor %}
+

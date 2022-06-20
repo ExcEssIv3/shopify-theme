@@ -1,0 +1,14 @@
+<strong>Product List:</strong><br><br>
+
+{% for product in collections.frontpage.products %}
+	<em>Id:</em> {{ product.id }} <br>
+	<em>Title:</em> {{ product.title }} <br>
+	<em>Type:</em> {{ product.type }} <br>
+	<em>Vendor:</em> {{ product.vendor }} <br>
+	<em>Available:</em> {{ product.available }} <br>
+	<em>Collections:</em> <br>
+	{% for collection in product.collections %}
+		&emsp;&emsp;{{ collection.title }} <br>
+	{% endfor %}
+	<br>
+{% endfor %}
