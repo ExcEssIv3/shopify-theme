@@ -7,7 +7,7 @@
 	<em>Vendor:</em> {{ product.vendor }} <br>
 	<em>Available:</em> {{ product.available }} <br>
 	<em>Collections:</em> <br>
-	<em>{{ product.metafields.custom }}</em><br>
+	<em>{{ product.metafields.custom | first }}</em><br>
 	{% for collection in product.collections %}
 		&emsp;&emsp;{{ collection.title }} <br>
 	{% endfor %}
