@@ -1,17 +1,227 @@
 
-dynamic content
+{{ section.settings.form_name }}:<br>
+<form action="{{ section.settings.form_action }}" method="{{ section.settings.form_method }}">
+{%- for block in section.blocks -%}
+  {%- case block.type -%}
+    {%- when 'text' -%}
+      <div {{ block.shopify_attributes }}>
+        <label for="{{ block.settings.block_name }}">{{ block.settings.block_label }}</label>
+        <input type="text"
+          name="{{ block.settings.block_name }}"
+          id="{{ block.id }}">
+      </div>
+    {%- when 'checkbox' -%}
+      <div {{ block.shopify_attributes }}>
+        <label for="{{ block.settings.block_name }}">{{ block.settings.block_label }}</label>
+        <input type="checkbox"
+          name="{{ block.settings.block_name }}"
+          id="{{ block.id }}">
+      </div>
+    {%- when 'button' -%}
+      <div {{ block.shopify_attributes }}>
+        <!-- <label for="{{ block.settings.block_name }}">{{ block.settings.block_label }}</label> -->
+        <input type="button"
+          name="{{ block.settings.block_name }}"
+          id="{{ block.id }}"
+          value="{{ block.settings.block_label }}">
+      </div>
+    {%- when 'date' -%}
+      <div {{ block.shopify_attributes }}>
+        <label for="{{ block.settings.block_name }}">{{ block.settings.block_label }}</label>
+        <input type="date"
+          name="{{ block.settings.block_name }}"
+          id="{{ block.id }}">
+      </div>
+      {%- when 'email' -%}
+        <div {{ block.shopify_attributes }}>
+          <label for="{{ block.settings.block_name }}">{{ block.settings.block_label }}</label>
+          <input type="email"
+            name="{{ block.settings.block_name }}"
+            id="{{ block.id }}">
+        </div>
+      {%- when 'range' -%}
+        <div {{ block.shopify_attributes }}>
+          <label for="{{ block.settings.block_name }}">{{ block.settings.block_label }}</label>
+          <input type="range"
+            name="{{ block.settings.block_name }}"
+            id="{{ block.id }}"
+            min="{{ block.settings.min }}"
+            max="{{ block.settings.max }}">
+        </div>
+  {%- endcase -%}
+{%- endfor -%}
+<input type="submit" value="{{ section.settings.submit_message }}"><br>
+
+</form>
 
 {% render 'session_3' %}
 
 {% schema %}
   {
-    "name": "Section name",
-    "settings": []
+    "name": "Session 3",
+
+    "settings": [
+      {
+        "type": "text",
+        "id": "form_name",
+        "label": "Form Name",
+        "default": "Form"
+      },
+      {
+        "type": "text",
+        "id": "submit_message",
+        "label": "Submit Message",
+        "default": "Submit"
+      },
+      {
+        "type": "text",
+        "id": "form_action",
+        "label": "Action",
+        "default": "/"
+      },
+      {
+        "type": "select",
+        "id": "form_method",
+        "options": [
+          {
+            "value": "GET",
+            "label": "Get"
+          },
+          {
+            "value": "POST",
+            "label": "Post"
+          }
+        ],
+        "default": "POST",
+        "label": "REST Methods"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "text",
+        "name": "Text entry",
+        "settings": [
+          {
+
+            "type": "text",
+            "id": "block_name",
+            "default": "text_box",
+            "label": "Text Box Name"
+          },
+          {
+            "type": "text",
+            "id": "block_label",
+            "default": "Text Box Label",
+            "label": "Text Box Label"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "name": "Checkbox",
+        "settings": [
+          {
+
+            "type": "text",
+            "id": "block_name",
+            "default": "checkbox",
+            "label": "Checkbox Name"
+          },
+          {
+            "type": "text",
+            "id": "block_label",
+            "default": "Checkbox Label",
+            "label": "Checkbox Label"
+          }
+        ]
+      },
+      {
+        "type": "button",
+        "name": "Button",
+        "settings": [
+          {
+
+            "type": "text",
+            "id": "block_name",
+            "default": "button",
+            "label": "Button Name"
+          },
+          {
+            "type": "text",
+            "id": "block_label",
+            "default": "Button Label",
+            "label": "Button Label"
+          }
+        ]
+      },
+      {
+        "type": "date",
+        "name": "Date",
+        "settings": [
+          {
+
+            "type": "text",
+            "id": "block_name",
+            "default": "Date",
+            "label": "Date Name"
+          },
+          {
+            "type": "text",
+            "id": "block_label",
+            "default": "Date Label",
+            "label": "Date Label"
+          }
+        ]
+      },
+      {
+        "type": "email",
+        "name": "Email",
+        "settings": [
+          {
+
+            "type": "text",
+            "id": "block_name",
+            "default": "email",
+            "label": "Email Name"
+          },
+          {
+            "type": "text",
+            "id": "block_label",
+            "default": "Email Label",
+            "label": "Email Label"
+          }
+        ]
+      },
+      {
+        "type": "range",
+        "name": "Range",
+        "settings": [
+          {
+            "type": "text",
+            "id": "block_name",
+            "default": "Range",
+            "label": "Range Name"
+          },
+          {
+            "type": "text",
+            "id": "block_label",
+            "default": "Range Label",
+            "label": "Range Label"
+          },
+          {
+            "type": "number",
+            "id": "min",
+            "default": 0,
+            "label": "Range Minimum"
+          },
+          {
+            "type": "number",
+            "id": "max",
+            "default": 100,
+            "label": "Range Maximum"
+          }
+        ]
+      }
+    ]
   }
 {% endschema %}
-
-{% stylesheet %}
-{% endstylesheet %}
-
-{% javascript %}
-{% endjavascript %}
