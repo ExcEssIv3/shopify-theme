@@ -185,6 +185,61 @@
         "settings": {
           "color_scheme": "background-1"
         }
+      },
+      "session_3_section": {
+        "type": "session_3_section",
+        "blocks": {
+          "dba5ceef-1360-440a-ba40-0e3306d28eac": {
+            "type": "text",
+            "settings": {
+              "block_name": "text_box",
+              "block_label": "My Text Box"
+            }
+          },
+          "dacf0fc2-ee5f-43b6-a79b-0d885b86c1b3": {
+            "type": "checkbox",
+            "settings": {
+              "block_name": "checkbox",
+              "block_label": "My Checkbox"
+            }
+          },
+          "71e8bd8b-6c72-48e8-8cec-f8acad5920c1": {
+            "type": "date",
+            "settings": {
+              "block_name": "Date",
+              "block_label": "My Date"
+            }
+          },
+          "bb9993f5-fca7-47d4-a41a-9639068fb652": {
+            "type": "email",
+            "settings": {
+              "block_name": "email",
+              "block_label": "My Email"
+            }
+          },
+          "0d186053-ddea-4296-96ba-196d1dbf19cd": {
+            "type": "range",
+            "settings": {
+              "block_name": "Range",
+              "block_label": "My Range",
+              "min": 20,
+              "max": 200
+            }
+          }
+        },
+        "block_order": [
+          "dba5ceef-1360-440a-ba40-0e3306d28eac",
+          "dacf0fc2-ee5f-43b6-a79b-0d885b86c1b3",
+          "71e8bd8b-6c72-48e8-8cec-f8acad5920c1",
+          "bb9993f5-fca7-47d4-a41a-9639068fb652",
+          "0d186053-ddea-4296-96ba-196d1dbf19cd"
+        ],
+        "settings": {
+          "form_name": "Test Form",
+          "submit_message": "Submit",
+          "form_action": "\/",
+          "form_method": "POST"
+        }
       }
     },
     "content_for_index": [
