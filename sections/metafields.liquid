@@ -1,20 +1,40 @@
-test
-
 {% if section.settings.display %}
-    <div>
-        {% for field in section.settings.product.metafields.training %}
-            {% assign metafield = field | metafield_tag %}
-            {% if metafield.list %}
-                {% for listVal in metafield %}
-                    {{ listVal.value }} <br>
-                {% endfor %}
-            {% elsif metafield.type == "json" %}
-                json <br>
-            {% else %}
-                {{ metafield.value }}
-            {% endif %}
-        {% endfor %}
-    </div>
+    <!-- {% for field in section.settings.product-to-display.metafields.training %}
+        {% assign metafield = field | metafield_tag %}
+        {{ metafield.list }}
+        {% if metafield.list %}
+            {% for listVal in metafield %}
+                {{ listVal.value }} <br>
+            {% endfor %}
+        {% elsif metafield.type == "json" %}
+            json <br>
+        {% else %}
+            {{ metafield.value }}
+        {% endif %}
+        {% if field.value == "number_decimal" %}
+            number_decimal
+        {% endif %}
+    {% endfor %} -->
+    Single line text: {{ section.settings.product-to-display.metafields.training.single_line_text | metafield_tag }} <br>
+    Single line text array: {{ section.settings.product-to-display.metafields.training.single_line_text_array | metafield_tag }} <br>
+    Multi line text: {{ section.settings.product-to-display.metafields.training.multi-line-text | metafield_tag }} <br>
+    Decimal: {{ section.settings.product-to-display.metafields.training.decimal | metafield_tag }} <br>
+    Product: {{ section.settings.product-to-display.metafields.training.product | metafield_tag }} <br>
+    File: {{ section.settings.product-to-display.metafields.training.file | metafield_tag }} <br>
+    Date: {{ section.settings.product-to-display.metafields.training.date | metafield_tag }} <br>
+    Date time: {{ section.settings.product-to-display.metafields.training.date_time | metafield_tag }} <br>
+    Weight: {{ section.settings.product-to-display.metafields.training.weight | metafield_tag }} <br>
+    Volume: {{ section.settings.product-to-display.metafields.training.volume | metafield_tag }} <br>
+    Dimension: {{ section.settings.product-to-display.metafields.training.dimension | metafield_tag }} <br>
+    Page: {{ section.settings.product-to-display.metafields.training.page | metafield_tag }} <br>
+    Product Variant: {{ section.settings.product-to-display.metafields.training.product_variant | metafield_tag }} <br>
+    Color: {{ section.settings.product-to-display.metafields.training.color | metafield_tag }} <br>
+    JSON: {{ section.settings.product-to-display.metafields.training.json | metafield_tag }} <br>
+    Rating: {{ section.settings.product-to-display.metafields.training.rating | metafield_tag }} <br>
+    Boolean: {{ section.settings.product-to-display.metafields.training.boolean | metafield_tag }} <br>
+    URL: {{ section.settings.product-to-display.metafields.training.url | metafield_tag }} <br>
+
+    
 {% endif %}
 
 {% schema %}
