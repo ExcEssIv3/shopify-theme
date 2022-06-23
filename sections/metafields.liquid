@@ -1,38 +1,12 @@
-test
-
-<!-- {% if section.settings.display %}
-    <div>
-        {% for field in section.settings.product.metafields.training %}
-            {% assign metafield = field | metafield_tag %}
-            {% if metafield.list %}
-                {% for listVal in metafield %}
-                    {{ listVal.value }} <br>
-                {% endfor %}
-            {% elsif metafield.type == "json" %}
-                json <br>
-            {% else %}
-                {{ metafield.value }}
-            {% endif %}
-        {% endfor %}
-    </div>
-{% endif %}
-
 {% schema %}
-    {
-        "Name": "Metafields",
-        
-        "settings": [
-            {
-                "type": "checkbox",
-                "id": "display",
-                "label": "Display Metafields",
-                "default": true
-            },
-            {
-                "type": "product",
-                "id": "product-to-display",
-                "label": "Product to Display"
-            }
-        ]
-    }
-{% endschema %} -->
+  {
+    "name": "Section name",
+    "settings": []
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
