@@ -240,6 +240,13 @@
           "form_action": "\/",
           "form_method": "POST"
         }
+      },
+      "metafields": {
+        "type": "metafields",
+        "settings": {
+          "display": true,
+          "product-to-display": "high-priest"
+        }
       }
     },
     "content_for_index": [
