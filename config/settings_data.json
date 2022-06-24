@@ -189,6 +189,13 @@
       "session_3_section": {
         "type": "session_3_section",
         "blocks": {
+          "0e24bbf6-ec4c-43f7-8000-4f022f963849": {
+            "type": "text",
+            "settings": {
+              "block_name": "text_box",
+              "block_label": "Customer Name:"
+            }
+          },
           "dba5ceef-1360-440a-ba40-0e3306d28eac": {
             "type": "text",
             "settings": {
@@ -228,6 +235,7 @@
           }
         },
         "block_order": [
+          "0e24bbf6-ec4c-43f7-8000-4f022f963849",
           "dba5ceef-1360-440a-ba40-0e3306d28eac",
           "dacf0fc2-ee5f-43b6-a79b-0d885b86c1b3",
           "71e8bd8b-6c72-48e8-8cec-f8acad5920c1",
